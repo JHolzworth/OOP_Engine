@@ -1,0 +1,7 @@
+package neumont.edu.csc150.volley.game.frame;
+
+import javax.swing.JPanel;
+
+public class AchievementPane extends JPanel{
+
+}

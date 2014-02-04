@@ -1,0 +1,31 @@
+package neumont.edu.csc150.move.mouseMover;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.Collection;
+
+import neumont.edu.csc150.player.movement.MoveListener;
+
+public class MouseMover extends MouseAdapter {
+	
+	private Collection<MoveListener> moveListeners;
+	
+	public MouseMover(){
+		moveListeners = new ArrayList<MoveListener>(0);
+	}
+	
+	public void addMoveListener(MoveListener movListener){
+		moveListeners.add(movListener);
+	}
+	
+	public void removeMoveListener(MoveListener movListener){
+		moveListeners.remove(movListener);
+	}
+	
+	public void mouseMoved(MouseEvent me){
+		for(MoveListener ml : moveListeners){
+			ml.move(me.getPoint());
+		}
+	}
+}

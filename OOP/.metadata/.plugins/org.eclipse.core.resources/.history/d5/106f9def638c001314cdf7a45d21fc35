@@ -1,0 +1,48 @@
+package neumont.edu.csc150.volley.menu;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+
+import neumont.edu.csc150.Game;
+import neumont.edu.csc150.volley.VolleyFrame;
+import neumont.edu.csc150.volley.game.frame.GamePane;
+import neumont.edu.csc150.volley.menu.factory.ProfileFactory;
+
+public class SaveSlot extends MenuSlot{
+
+	private JButton load;
+	private JButton delete;
+	public SaveSlot(final File save){
+		super();
+		Game.setPlayer(ProfileFactory.readProfile(save));
+		
+		
+		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+		load = new JButton("Load");
+		load.setVisible(true);
+		add(Box.createHorizontalGlue());
+		add(load,Box.LEFT_ALIGNMENT);
+		
+		load.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent ae) {
+				MenuPane.SAVE_FILE = save;
+				VolleyFrame.getInstance().loadPane(new GamePane());
+			}
+		});
+		
+		
+		delete = new JButton("Delete");
+		delete.setVisible(true);
+		add(delete,Box.RIGHT_ALIGNMENT);
+		add(Box.createHorizontalGlue());
+		setBorder(BorderFactory.createLineBorder(Color.black));
+		setVisible(true);
+	}
+}

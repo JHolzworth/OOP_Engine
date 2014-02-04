@@ -1,0 +1,20 @@
+package neumont.edu.csc150.volley.menu;
+
+import java.awt.Button;
+import java.awt.Color;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+
+public class NewSlot extends MenuSlot{
+	public NewSlot(){
+		super();
+		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+		Button newButton = new Button("New Game");
+		newButton.setVisible(true);
+		add(newButton,Box.CENTER_ALIGNMENT);
+		setBorder(BorderFactory.createLineBorder(Color.black));
+		setVisible(true);
+	}
+}

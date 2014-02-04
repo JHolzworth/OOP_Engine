@@ -1,0 +1,26 @@
+package neumont.edu.csc150.volley.game.frame.level;
+
+import javax.swing.JPanel;
+
+public class SectionSlot extends JPanel{
+	
+	private String name;
+	
+	public SectionSlot(String _name){
+		super();
+		name = _name;
+		x = 0;
+		y = 0;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	private int GRID_SIZE = 2;
+	int x,y;
+	
+	public void addSlot(LevelSlot ls){
+		
+	}
+}

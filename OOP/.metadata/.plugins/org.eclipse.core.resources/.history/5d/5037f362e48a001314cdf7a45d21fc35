@@ -1,0 +1,40 @@
+package neumont.edu.csc150.enemy;
+
+import java.awt.Graphics;
+import java.awt.Point;
+
+public class FlickeringEnemy extends Enemy{
+
+
+	private boolean flickering;
+	
+	public FlickeringEnemy(int _x, int _y, int _size, int _health) {
+		super(_x, _y, _size, _health);
+		init();
+	}
+	public FlickeringEnemy(Point _loc, int _size, int _health) {
+		super(_loc, _size, _health);
+		init();
+	}
+	
+	private void init(){
+		flickering = false;
+	}
+	
+	protected boolean checkCollision() {
+		return false;
+	}
+	
+	protected void actionForCollision() {
+		
+	}
+	
+	protected void action() {
+		
+	}
+	
+	public void paint(Graphics g){
+		g.setColor(OBTAINABLE);
+		super.paint(g);
+	}
+}

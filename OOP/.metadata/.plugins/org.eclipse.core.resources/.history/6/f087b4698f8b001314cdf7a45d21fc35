@@ -1,0 +1,7 @@
+
+public class LetterPoint {
+	
+	private static Point[] getA(){
+		
+	}
+}

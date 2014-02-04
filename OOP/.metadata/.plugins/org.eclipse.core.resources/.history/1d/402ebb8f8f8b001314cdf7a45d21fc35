@@ -1,0 +1,11 @@
+import java.awt.Point;
+
+
+public class LetterPoint {
+	
+	private static Point[] getV(){
+		Point[] points = new Point[3];
+		
+		return points;
+	}
+}

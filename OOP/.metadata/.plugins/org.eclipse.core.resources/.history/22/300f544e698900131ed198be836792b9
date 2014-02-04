@@ -1,0 +1,5 @@
+package neumont.edu.csc150.move.listener;
+
+public interface MoveListener {
+
+}

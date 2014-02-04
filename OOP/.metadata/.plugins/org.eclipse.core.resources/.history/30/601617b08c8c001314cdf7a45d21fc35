@@ -1,0 +1,7 @@
+package neumont.edu.csc150.enemies;
+
+import neumont.edu.csc150.enemy.Enemy;
+
+public class ObtainableEnemy extends Enemy{
+
+}

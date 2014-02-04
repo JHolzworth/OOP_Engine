@@ -1,0 +1,54 @@
+package neumont.edu.csc150.cusor;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+
+public class CursorListener implements MouseListener, MouseMotionListener{
+
+	private int CURSOR_SIZE = 10;
+	private Point mouseLoc = new Point(-25,-25);
+	
+	
+	private void setPoint(){
+		mouseLoc = new Point(mouseLoc.x-CURSOR_SIZE/2,mouseLoc.y-CURSOR_SIZE/2);
+	}
+
+	public void mouseClicked(MouseEvent me) {
+		mouseLoc = me.getPoint();
+		setPoint();
+	}
+
+	public void mouseEntered(MouseEvent me) {
+		mouseLoc = me.getPoint();
+		setPoint();
+	}
+
+	public void mouseExited(MouseEvent me) {
+		mouseLoc = me.getPoint();
+		setPoint();
+	}
+
+	public void mousePressed(MouseEvent me) {
+		mouseLoc = me.getPoint();
+		setPoint();
+	}
+
+	public void mouseReleased(MouseEvent me) {
+		mouseLoc = me.getPoint();
+		setPoint();
+	}
+
+	public void mouseDragged(MouseEvent me) {
+		mouseLoc = me.getPoint();
+		setPoint();
+	}
+
+	public void mouseMoved(MouseEvent me) {
+		mouseLoc = me.getPoint();
+		setPoint();
+	}
+}

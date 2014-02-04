@@ -1,0 +1,51 @@
+package neumont.edu.csc150.volley.cursor;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+
+import neumont.edu.csc150.volley.paintable.Paintable;
+
+public class CursorListener implements Paintable, MouseListener, MouseMotionListener{
+
+	private int CURSOR_SIZE = 10;
+	private Color CURSOR_COLOR = Color.black;
+	private Point mouseLoc = new Point(-25,-25);
+	
+	public void paint(Graphics g){
+		g.setColor(CURSOR_COLOR);
+		g.fillOval(mouseLoc.x, mouseLoc.y, CURSOR_SIZE, CURSOR_SIZE);
+	}
+	
+
+	public void mouseClicked(MouseEvent me) {
+		mouseLoc = me.getPoint();
+	}
+
+	public void mouseEntered(MouseEvent me) {
+		mouseLoc = me.getPoint();
+	}
+
+	public void mouseExited(MouseEvent me) {
+		mouseLoc = me.getPoint();
+	}
+
+	public void mousePressed(MouseEvent me) {
+		mouseLoc = me.getPoint();
+	}
+
+	public void mouseReleased(MouseEvent me) {
+		mouseLoc = me.getPoint();
+	}
+
+	public void mouseDragged(MouseEvent me) {
+		mouseLoc = me.getPoint();
+	}
+
+	public void mouseMoved(MouseEvent me) {
+		mouseLoc = me.getPoint();
+	}
+}

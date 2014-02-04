@@ -1,0 +1,15 @@
+package neumont.edu.csc150.volley;
+
+import java.awt.Point;
+
+public class Oval {
+
+	private Point location;
+	private int size;
+	
+	public Oval(int _x, int _y, int _size){
+		x = _x;
+		y = _y;
+		size = _size;
+	}
+}

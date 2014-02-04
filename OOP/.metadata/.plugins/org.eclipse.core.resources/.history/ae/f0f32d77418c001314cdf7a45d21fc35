@@ -1,0 +1,75 @@
+package neumont.edu.csc150.volley.game.frame;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+
+import javax.imageio.ImageIO;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JViewport;
+
+import neumont.edu.csc150.Game;
+import neumont.edu.csc150.level.BasicLevel;
+import neumont.edu.csc150.level.Level;
+import neumont.edu.csc150.player.Player;
+import neumont.edu.csc150.player.achievement.GainedAchievement;
+import neumont.edu.csc150.player.volley.VolleyPlayer;
+import neumont.edu.csc150.shield.Shield;
+import neumont.edu.csc150.volley.game.frame.achievement.AchievementPane;
+import neumont.edu.csc150.volley.game.frame.level.LevelsPane;
+
+public class GamePane extends JPanel{
+
+	
+	public GamePane(){
+		super();
+		//TODO
+		//Take out should be loaded by now...
+		
+		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+		
+		JPanel topPane = new JPanel();
+		topPane.setLayout(new BoxLayout(topPane,BoxLayout.X_AXIS));
+		PlayerStatPane psPane = new PlayerStatPane();
+		topPane.add(psPane);
+		topPane.add(Box.createHorizontalGlue());
+		
+		JScrollPane achiPane = new JScrollPane(){
+			public void paint(Graphics g){
+				super.paint(g);
+			}
+		};
+		JViewport vp = new JViewport();
+		vp.setView(new AchievementPane(p.getAchievements(),psPane));
+		achiPane.setViewport(vp);
+		achiPane.setPreferredSize(new Dimension(400,250));
+		
+		topPane.add(achiPane);
+		topPane.add(Box.createHorizontalGlue());
+		
+		topPane.setVisible(true);
+		
+		add(topPane);
+		add(Box.createHorizontalGlue());
+		
+		
+		Collection<Level> basics = new ArrayList<Level>();
+		basics.add(new BasicLevel());
+		basics.add(new BasicLevel());
+		basics.add(new BasicLevel());
+		basics.add(new BasicLevel());
+		
+		
+		add(new LevelsPane(basics));
+		
+		setVisible(true);
+	}
+}

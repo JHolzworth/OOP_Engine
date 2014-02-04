@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;VolleyEngine&apos;&#x0D;&#x0A;- Original project: &apos;VolleyEngine&apos;&#x0D;&#x0A;- Original element: &apos;neumont.edu.csc150.volley.Oval.java&apos;" description="Delete element" element1="/src&lt;neumont.edu.csc150.volley{Oval.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1391051073760" subPackages="false" version="1.0"/>
+</session>

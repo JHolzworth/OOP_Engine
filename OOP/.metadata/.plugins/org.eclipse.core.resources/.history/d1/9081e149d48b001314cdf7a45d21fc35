@@ -1,0 +1,25 @@
+package neumont.edu.csc150.volley.game.frame.achievement;
+
+import java.awt.Dimension;
+import java.util.Collection;
+
+import javax.swing.Box;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import neumont.edu.csc150.player.achievement.GainedAchievement;
+
+public class AchievementPane extends JScrollPane{
+
+	public AchievementPane(Collection<GainedAchievement> achieves, JPanel toCompare){
+		super();
+		setPreferredSize(new Dimension(500,500));
+		
+		//setLayout();
+		for(GainedAchievement ga : achieves){
+			add(new AchievementSlot(ga));
+			add(Box.createVerticalGlue());
+		}
+		setVisible(true);
+	}
+}

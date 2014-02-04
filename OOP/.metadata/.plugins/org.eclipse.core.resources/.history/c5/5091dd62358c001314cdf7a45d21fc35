@@ -1,0 +1,52 @@
+package neumont.edu.csc150.volley.game.frame.level;
+
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.util.Collection;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import neumont.edu.csc150.Game;
+import neumont.edu.csc150.level.Level;
+import neumont.edu.csc150.player.Player;
+import neumont.edu.csc150.player.achievement.Achievement;
+
+public class LevelSlot extends JPanel{
+
+	public LevelSlot(Level lev){
+		super();
+		setLayout(new GridBagLayout());
+		GridBagConstraints bgCon = new GridBagConstraints();
+		
+		JLabel icon = new JLabel();
+		icon.setIcon(new ImageIcon(lev.getIcon()));
+		bgCon.gridheight = 3;
+		bgCon.gridx = 0;
+		bgCon.gridy = 1;
+		add(icon,bgCon);
+		
+		JLabel name = new JLabel(lev.getName());
+		name.setFont(new Font(null,1,15));
+		bgCon.gridheight = 1;
+		bgCon.gridx = 0;
+		bgCon.gridy = 0;
+		bgCon.ipady =10;
+		add(name,bgCon);
+		
+		JLabel date = new JLabel(lev.getDate());
+		bgCon.gridx = 1;
+		bgCon.gridy = 2;
+		add(date,bgCon);
+		
+		
+		Player play = Game.getCurrentPlayer();
+		
+		Collection<Achievement> achievs = lev.getAchievements();
+		
+		
+		setVisible(true);
+	}
+}

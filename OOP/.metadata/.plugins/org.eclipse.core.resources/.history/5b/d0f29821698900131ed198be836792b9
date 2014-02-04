@@ -1,0 +1,6 @@
+package neumont.edu.csc150.mouseMover;
+
+import java.awt.event.MouseAdapter;
+
+public class MouseMover extends MouseAdapter {
+}

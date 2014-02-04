@@ -1,0 +1,19 @@
+package neumont.edu.csc150.volley.menu.factory.writer;
+
+import neumont.edu.csc150.player.Player;
+
+public class TextFileWriter implements FileWriter{
+
+	public void writePlayer(Player p) {
+		String x = "X: "+p.getLocation().x;
+		String y = "Y: "+p.getLocation().y;
+		String health = "Health: "+p.getHealth();
+		String speed = "Speed: "+p.getSpeed();
+		String shieldSize = "ShieldSize: "+p.getShield().getShellSize();
+		String shieldRelay = "ShieldRelay: "+p.getShield().getRelay();
+		String ShieldHealth = "ShieldHealth: "+p.getShield().getHealth();
+		String immune = "Immune: "+p.getImmuneThresh();
+		String pnts = "Points: "+p.getPoints();
+	}
+
+}

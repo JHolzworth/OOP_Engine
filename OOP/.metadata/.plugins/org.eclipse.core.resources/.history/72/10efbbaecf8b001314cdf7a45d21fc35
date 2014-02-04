@@ -1,0 +1,123 @@
+package neumont.edu.csc150.volley.game.frame;
+
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import neumont.edu.csc150.Game;
+import neumont.edu.csc150.player.Player;
+
+public class PlayerStatPane extends JPanel{
+
+	public PlayerStatPane(){
+		final Player play = Game.getCurrentPlayer();
+		GridBagLayout gbLayout = new GridBagLayout();
+		setLayout(gbLayout);
+		GridBagConstraints gbCon = new GridBagConstraints();
+		
+		JLabel playerPic = new JLabel("\b"){
+			//TODO
+			//Fix player's width/height
+			public void paintComponent(Graphics g){
+				g.setColor(play.getColor());
+				g.fillOval(this.getWidth()/3, 0, this.getWidth()/4, this.getHeight()/2);
+			}
+		};
+		gbCon.fill = GridBagConstraints.HORIZONTAL;
+		gbCon.weightx = .5;
+		gbCon.weighty = 1;
+		gbCon.gridx = 0;
+		gbCon.gridy = 0;
+		gbCon.ipady = 40;
+		gbCon.gridheight = 5;
+		add(playerPic,gbCon);
+
+		gbCon.ipady = 1;
+
+		gbCon.gridheight = 1;
+		
+		JLabel r = new JLabel("R : "+play.getColor().getRed());
+		gbCon.fill = GridBagConstraints.HORIZONTAL;
+		gbCon.weightx = .5;
+		gbCon.weighty = 1;
+		gbCon.gridx = 1;
+		gbCon.gridy = 0;
+		add(r,gbCon);
+		
+		JLabel g = new JLabel("G : "+play.getColor().getGreen());
+		gbCon.fill = GridBagConstraints.HORIZONTAL;
+		gbCon.weightx = .5;
+		gbCon.weighty = 1;
+		gbCon.gridx = 1;
+		gbCon.gridy = 1;
+		add(g,gbCon);
+
+		JLabel b = new JLabel("B : "+play.getColor().getBlue());
+		gbCon.fill = GridBagConstraints.HORIZONTAL;
+		gbCon.weightx = .5;
+		gbCon.weighty = 1;
+		gbCon.gridx = 1;
+		gbCon.gridy = 2;
+		add(b,gbCon);
+		
+		
+		JLabel health = new JLabel("Health : "+play.getHealth());
+		gbCon.fill = GridBagConstraints.HORIZONTAL;
+		gbCon.weightx = .5;
+		gbCon.weighty = 1;
+		gbCon.gridx = 0;
+		gbCon.gridy = 6;
+		add(health,gbCon);
+		
+		JLabel shield = new JLabel("Shield : "+play.getShield().getShellSize());
+		gbCon.fill = GridBagConstraints.HORIZONTAL;
+		gbCon.weightx = .5;
+		gbCon.weighty = 1;
+		gbCon.gridx = 0;
+		gbCon.gridy = 7;
+		add(shield,gbCon);
+		
+		JLabel shieldRel = new JLabel("Shield Relay : "+play.getShield().getRelay());
+		gbCon.fill = GridBagConstraints.HORIZONTAL;
+		gbCon.weightx = .5;
+		gbCon.weighty = 1;
+		gbCon.gridx = 0;
+		gbCon.gridy = 8;
+		add(shieldRel,gbCon);
+		
+		JLabel immune = new JLabel("Immune : "+play.getImmuneThresh());
+		gbCon.fill = GridBagConstraints.HORIZONTAL;
+		gbCon.weightx = .5;
+		gbCon.weighty = 1;
+		gbCon.gridx = 0;
+		gbCon.gridy = 9;
+		add(immune,gbCon);
+		
+		JLabel speed = new JLabel("Speed : "+play.getSpeed());
+		gbCon.fill = GridBagConstraints.HORIZONTAL;
+		gbCon.weightx = .5;
+		gbCon.weighty = 1;
+		gbCon.gridx = 0;
+		gbCon.gridy = 10;
+		add(speed,gbCon);
+		
+		JLabel pnts = new JLabel("Points : "+play.getPoints());
+		gbCon.fill = GridBagConstraints.HORIZONTAL;
+		gbCon.weightx = .5;
+		gbCon.weighty = 1;
+		gbCon.gridx = 1;
+		gbCon.gridy = 6;
+		add(pnts,gbCon);
+		
+		
+		
+		setVisible(true);
+		
+		
+	}
+	
+	
+}

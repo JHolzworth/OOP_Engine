@@ -1,0 +1,14 @@
+package neumont.edu.csc150.volley.game.frame.achievement;
+
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+
+public class AchievementPane extends JPanel{
+
+	public AchievementPane(){
+		super();
+		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+		
+		setVisible(true);
+	}
+}

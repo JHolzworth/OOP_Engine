@@ -1,0 +1,10 @@
+package neumont.edu.csc150.volley.menu.factory;
+
+import neumont.edu.csc150.player.Player;
+
+public class ProfileFactory {
+
+	public static Player readProfile(){
+		FileReader fr =  new FileReader("C:\\Users\\Joshua\\Desktop\\sav1.vsav");
+	}
+}

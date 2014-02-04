@@ -1,0 +1,23 @@
+package neumont.edu.csc150.enemy;
+
+import java.awt.Point;
+
+import neumont.edu.csc150.volley.Oval;
+
+public class Enemy extends Oval{
+
+	public Enemy(int _x, int _y, int _size) {
+		super(_x, _y, _size);
+		init();
+	}
+	public Enemy(Point loc, int _size) {
+		super(loc, _size);
+		init();
+	}
+
+	private void init(){
+		
+	}
+	
+	public abstract move();
+}

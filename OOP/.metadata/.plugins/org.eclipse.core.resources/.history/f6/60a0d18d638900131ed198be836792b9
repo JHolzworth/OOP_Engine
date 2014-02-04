@@ -1,0 +1,13 @@
+package neumont.edu.csc150;
+
+import neumont.edu.csc150.volley.VolleyFrame;
+
+public class Volley {
+	public Volley(){
+		int startX;
+		int startY;
+		int width;
+		int height;
+		VolleyFrame vf = new VolleyFrame();
+	}
+}

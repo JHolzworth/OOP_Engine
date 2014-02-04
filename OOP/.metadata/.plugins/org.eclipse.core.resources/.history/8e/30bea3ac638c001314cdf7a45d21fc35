@@ -1,0 +1,28 @@
+package neumont.edu.csc150.volley.menu;
+
+import java.awt.Color;
+import java.io.File;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+
+public class NewSlot extends MenuSlot{
+	public NewSlot(final File save){
+		super();
+		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+		JButton newButton = new JButton("New Game");
+		newButton.setVisible(true);
+		
+		//ADD listener
+		//THen add file to menuPane dumbass..
+		
+		
+		add(Box.createHorizontalGlue());
+		add(newButton,Box.CENTER_ALIGNMENT);
+		add(Box.createHorizontalGlue());
+		setBorder(BorderFactory.createLineBorder(Color.green));
+		setVisible(true);
+	}
+}

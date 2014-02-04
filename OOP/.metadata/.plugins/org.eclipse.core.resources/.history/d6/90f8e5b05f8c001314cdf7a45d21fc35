@@ -1,0 +1,7 @@
+package neumont.edu.csc150.volley.menu.factory.writer;
+
+import neumont.edu.csc150.player.Player;
+
+public interface FileWriter {
+	public void writePlayer(Player p);
+}

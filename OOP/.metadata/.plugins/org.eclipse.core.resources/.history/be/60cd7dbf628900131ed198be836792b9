@@ -1,0 +1,7 @@
+package neumont.edu.csc150.volley.level.frame;
+
+import javax.swing.JFrame;
+
+public class LevelFrame extends JFrame{
+
+}

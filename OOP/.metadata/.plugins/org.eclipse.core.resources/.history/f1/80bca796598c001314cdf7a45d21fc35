@@ -1,0 +1,7 @@
+package neumont.edu.csc150.volley.menu.factory;
+
+import java.io.File;
+
+public interface FileReader {
+	public Player readPlayer(File file);
+}

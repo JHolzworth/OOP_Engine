@@ -1,0 +1,17 @@
+package neumont.edu.csc150;
+
+import java.awt.Toolkit;
+
+import neumont.edu.csc150.volley.VolleyFrame;
+
+public class Volley {
+	public Volley(){
+		int width = 1000;
+		int height = 1000;
+		int startX = Toolkit.getDefaultToolkit().getScreenSize().width;
+		int startY;
+		int width;
+		int height;
+		VolleyFrame vf = new VolleyFrame();
+	}
+}

@@ -1,0 +1,80 @@
+package neumont.edu.csc150.volley.level.pane;
+
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+import neumont.edu.csc150.Game;
+import neumont.edu.csc150.level.Level;
+import neumont.edu.csc150.level.LevelListener;
+import neumont.edu.csc150.move.PlayerController;
+import neumont.edu.csc150.move.mouseMover.MouseMover;
+import neumont.edu.csc150.player.Player;
+import neumont.edu.csc150.volley.VolleyFrame;
+import neumont.edu.csc150.volley.game.frame.GamePane;
+
+public class LevelPane extends JPanel implements LevelListener{
+	
+	private Player player;
+	private Level currentLevel;
+	private PlayerController controller;
+	
+	
+	public LevelPane(Level _currentLevel){
+		super();
+		currentLevel = _currentLevel;
+		setBounds(0,0,currentLevel.getBounds().width,currentLevel.getBounds().height);
+		init();
+	}
+	
+	public Level getLevel(){
+		return currentLevel;
+	}
+	
+	private void init(){
+		setLayout(null);
+		setVisible(true);
+		setFocusable(true);
+		requestFocus();
+		
+		//TODO
+		//Have a load player method not this crap with 
+		//a random player
+		
+	}
+	
+	MouseMover mm;
+	
+	//TODO
+	//Must start level and start animations etc...
+	public void startLevel(){
+		System.out.println(player.getSpeed());
+		currentLevel.addListener(this);
+		
+		player = Game.getCurrentPlayer();
+		controller = new PlayerController(player);
+		mm = new MouseMover();
+		mm.addMoveListener(controller);
+		
+		
+		addMouseMotionListener(mm);
+		addMouseListener(mm);
+		
+	}
+	
+	public void paint(Graphics g){
+		if(player.getHealth()==0){
+			VolleyFrame.getInstance().loadPane(new GamePane());
+		}
+		currentLevel.paint(player, g);
+	}
+
+	public void levelComplete() {
+		mm.removeMoveListener(controller);
+		removeMouseListener(mm);
+		removeMouseMotionListener(mm);
+		System.out.println(currentLevel.getDate());
+		currentLevel.removeListener(this);
+		VolleyFrame.getInstance().loadPane(new GamePane());
+	}
+}

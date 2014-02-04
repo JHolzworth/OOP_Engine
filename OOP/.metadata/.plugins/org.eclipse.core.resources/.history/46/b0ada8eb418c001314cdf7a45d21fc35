@@ -1,0 +1,24 @@
+package neumont.edu.csc150;
+
+import java.util.Collection;
+
+import neumont.edu.csc150.level.Level;
+import neumont.edu.csc150.player.Player;
+
+public class Game {
+
+	private static Player currentPlayer;
+	private static Collection<Level> allLevels;
+	public Game(Player _currentPlayer, Collection<Level> _allLevels){
+		currentPlayer = _currentPlayer;
+		allLevels = _allLevels;
+	}
+	
+	public static OCllection<Level> getLevels(){
+		return allLevels;
+	}
+	
+	public static Player getCurrentPlayer(){
+		return currentPlayer;
+	}
+}

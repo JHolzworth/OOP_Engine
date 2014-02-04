@@ -1,0 +1,5 @@
+package neumont.edu.csc150.volley.game.frame.level;
+
+public class LevelSlotHolder extends JPanel{
+
+}

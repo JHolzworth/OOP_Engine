@@ -1,0 +1,10 @@
+package neumont.edu.csc150.volley.menu.factory;
+
+import neumont.edu.csc150.player.Player;
+
+public class ProfileFactory {
+
+	public static Player readProfile(){
+		
+	}
+}

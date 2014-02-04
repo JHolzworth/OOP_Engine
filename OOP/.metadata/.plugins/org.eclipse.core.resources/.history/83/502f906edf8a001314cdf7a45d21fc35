@@ -1,0 +1,7 @@
+package neumont.edu.csc150.volley.cursor;
+
+import neumont.edu.csc150.volley.paintable.Paintable;
+
+public class CursorListener implements Paintable{
+
+}

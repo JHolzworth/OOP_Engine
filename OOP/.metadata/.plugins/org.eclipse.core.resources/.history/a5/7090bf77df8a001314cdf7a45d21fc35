@@ -1,0 +1,18 @@
+package neumont.edu.csc150.volley.cursor;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Point;
+
+import neumont.edu.csc150.volley.paintable.Paintable;
+
+public class CursorListener implements Paintable{
+
+	private int CURSOR_SIZE = 50;
+	private Color CURSOR_COLOR = Color.black;
+	private Point mouseLoc = new Point(-25,-25);
+	
+	public void paint(Graphics g){
+		
+	}
+}

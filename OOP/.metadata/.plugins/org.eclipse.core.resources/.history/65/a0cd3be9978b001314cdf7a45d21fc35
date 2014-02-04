@@ -1,0 +1,6 @@
+package neumont.edu.csc150.volley.menu;
+
+import javax.swing.JPanel;
+
+public class MenuSlot extends JPanel{
+}

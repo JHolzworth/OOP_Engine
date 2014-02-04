@@ -1,0 +1,76 @@
+package neumont.edu.csc150.volley.game.frame;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+
+import javax.imageio.ImageIO;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JViewport;
+
+import neumont.edu.csc150.Game;
+import neumont.edu.csc150.player.Player;
+import neumont.edu.csc150.player.achievement.GainedAchievement;
+import neumont.edu.csc150.player.volley.VolleyPlayer;
+import neumont.edu.csc150.shield.Shield;
+import neumont.edu.csc150.volley.game.frame.achievement.AchievementPane;
+
+public class GamePane extends JPanel{
+
+	
+	public GamePane(){
+		super();
+		//TODO
+		//Take out should be loaded by now...
+		Collection<GainedAchievement> achievs = new ArrayList<GainedAchievement>();
+		try {
+			achievs.add(new GainedAchievement("Test",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\Untitled.png")),new Date()));
+			achievs.add(new GainedAchievement("Test123123123",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\Untitled.png")),new Date()));
+			achievs.add(new GainedAchievement("Test",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\Untitled.png")),new Date()));
+			achievs.add(new GainedAchievement("Test",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\Untitled.png")),new Date()));
+			achievs.add(new GainedAchievement("Test",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\Untitled.png")),new Date()));
+			achievs.add(new GainedAchievement("walking on sunShine",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\Untitled.png")),new Date()));
+			achievs.add(new GainedAchievement("Test",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\Untitled.png")),new Date()));
+			achievs.add(new GainedAchievement("Test",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\Untitled.png")),new Date()));
+			achievs.add(new GainedAchievement("Suck it...",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\Untitled.png")),new Date()));
+			achievs.add(new GainedAchievement("Test",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\Untitled.png")),new Date()));
+			achievs.add(new GainedAchievement("Test",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\Untitled.png")),new Date()));
+			achievs.add(new GainedAchievement("Test",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\Untitled.png")),new Date()));
+			achievs.add(new GainedAchievement("Bitch please",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\Untitled.png")),new Date()));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Player p = new VolleyPlayer(0,0,25,Color.cyan,5,3,new Shield(3,1,25,0,0),1, achievs);
+		Game g = new Game(p);
+		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+		
+		JPanel topPane = new JPanel();
+		topPane.setLayout(new BoxLayout(topPane,BoxLayout.X_AXIS));
+		PlayerStatPane psPane = new PlayerStatPane();
+		topPane.add(psPane);
+		topPane.add(Box.createHorizontalGlue());
+		
+		JScrollPane achiPane = new JScrollPane();
+		JViewport vp = new JViewport();
+		vp.setView(new AchievementPane(p.getAchievements(),psPane));
+		achiPane.setViewport(viewport);
+		achiPane.setPreferredSize(new Dimension(500,500));
+		
+		achiPane.add());
+		
+		topPane.add(achiPane);
+		
+		topPane.setVisible(true);
+		
+		add(topPane);
+		setVisible(true);
+	}
+}

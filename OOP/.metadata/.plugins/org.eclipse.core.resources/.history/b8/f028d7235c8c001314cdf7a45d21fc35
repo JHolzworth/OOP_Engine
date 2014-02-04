@@ -1,0 +1,56 @@
+package neumont.edu.csc150.volley.menu.factory;
+
+import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import neumont.edu.csc150.player.Player;
+
+public class TextFileReader implements FileReader{
+
+protected Color playerColor;
+	
+	
+	/*
+	protected int maxHealth, health;
+	protected double speed;
+	
+	//TO MAKE A SHIELD
+	protected int shellSize;
+	protected int relay;
+	protected int health;
+	
+	
+	protected int immunityThresh;
+	
+	protected int points;
+	
+	
+	private Collection<GainedAchievement> achievements;
+	*/
+	
+	private static String healthRegex = "Health: (\\d+)";
+	
+	public Player readPlayer(File file) {
+		Scanner scan = null;
+		try {
+			scan = new Scanner(file);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		Pattern p = Pattern.compile(healthRegex);
+		Matcher m = p.matcher(scan.findInLine(healthRegex));
+		for(int i=0;i<m.groupCount();i++){
+			System.out.println(m.group(0));
+		}
+		//int value = Integer.parseInt(m.group(1));
+		
+		System.out.println(value);
+		
+		return null;
+	}
+
+}

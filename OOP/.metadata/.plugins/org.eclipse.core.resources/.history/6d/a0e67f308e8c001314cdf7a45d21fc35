@@ -1,0 +1,35 @@
+package neumont.edu.csc150.enemies;
+
+import java.awt.Point;
+
+import neumont.edu.csc150.Game;
+import neumont.edu.csc150.enemy.Enemy;
+
+public class ObtainableEnemy extends Enemy{
+
+	public ObtainableEnemy(Point loc, int _size, int _health) {
+		super(loc, _size, _health);
+	}
+
+	@Override
+	public void pause() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	protected boolean checkCollision() {
+		return Game.getCurrentPlayer().isColliding(this);
+	}
+
+	@Override
+	protected void actionForCollision() {
+		
+	}
+
+	@Override
+	protected void action() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

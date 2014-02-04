@@ -1,0 +1,7 @@
+package neumont.edu.csc150.volley.splash;
+
+import javax.swing.JFrame;
+
+public class SplashFrame extends JFrame{
+
+}

@@ -1,0 +1,117 @@
+package neumont.edu.csc150.levels;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Point;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+
+import javax.imageio.ImageIO;
+
+import neumont.edu.csc150.enemies.ObtainableEnemy;
+import neumont.edu.csc150.enemy.Enemy;
+import neumont.edu.csc150.level.Level;
+import neumont.edu.csc150.player.Player;
+
+public class ObtainableLevel extends Level{
+
+	private static Image icon = getBasicIcon();
+	private static int x = 500;
+	private static int y = 500;
+	private static int width = 1000;
+	private static int height = 1000;
+	
+	Image fog;
+	
+	public ObtainableLevel() {
+		super(x,y,width,height,icon,"Tutorial","Obtainable",getEnemies());
+		init();
+	}
+	private void init(){
+
+		setAchievements();
+		gameOver = false;
+		
+		try {
+			fog = ImageIO.read(getClass().getResourceAsStream("images/FogOfWar900.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	protected void paintBackground(Graphics g) {
+		g.setColor(Color.white);
+		g.fillRect(0,0, width, height);
+	}
+
+	protected void paintForeground(Graphics g) {
+		if(!gameOver){
+			g.setColor(Color.black);
+			g.drawString("Pick up all green circles.", 450, 25);
+		}else{
+			g.setColor(Color.black);
+			g.drawString("There's no way you shoulda died....",450,25);
+		}
+	}
+
+	private static Image getBasicIcon(){
+		try {
+			return ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\basicLevel.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	private static Collection<Enemy> getEnemies(){
+		Collection<Enemy> enemies = new ArrayList<Enemy>();
+		for(int i=0;i<3;i++)
+			enemies.add(new ObtainableEnemy(new Point((int)(Math.random()*1000),(int)(Math.random()*700)+200), 25, 1));
+		return enemies;
+	}
+	
+	private void setAchievements(){
+		/*try {
+			achievements.add(new Achievement("Check",ImageIO.read(new File("C:\\Users\\Joshua\\Desktop\\basicLevel.png"))));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+	}
+	
+	protected void setUpPlayer(Player p){
+		p.setLocation(new Point(0,0));
+	}
+	public void subReset(){
+		enemies = getEnemies();
+	}
+	
+	public boolean levelComplete(){
+		return enemies.size()==0;
+	}
+	
+	public void subCompletion(){
+		this.completed(new Date());
+		completed();
+	}
+	
+	Thread waiter;
+	public void gameOver(){
+		waiter = new Thread(new Runnable(){
+		public void run(){
+			try {
+				waiter.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			completed();
+		}
+		});
+		waiter.start();
+	}
+}

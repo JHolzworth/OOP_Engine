@@ -1,0 +1,8 @@
+package neumont.edu.csc150;
+
+public class Game {
+
+	public static Player getCurrentPlayer(){
+		
+	}
+}

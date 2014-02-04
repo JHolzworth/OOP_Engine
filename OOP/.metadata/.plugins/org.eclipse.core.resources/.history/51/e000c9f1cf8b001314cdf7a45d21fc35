@@ -1,0 +1,10 @@
+package neumont.edu.csc150.player.achievement;
+
+public class Achievement extends Achievable{
+
+	public Achievement(String _name) {
+		super(_name);
+		// TODO Auto-generated constructor stub
+	}
+
+}

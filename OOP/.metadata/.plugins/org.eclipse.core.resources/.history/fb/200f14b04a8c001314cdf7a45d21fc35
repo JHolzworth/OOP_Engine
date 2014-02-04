@@ -1,0 +1,84 @@
+package neumont.edu.csc150.volley.splash;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Point;
+
+import neumont.edu.csc150.volley.Oval;
+
+public class SplashOval extends Oval{
+
+	private Point dest;
+	private Color color = Color.red;
+	
+	public SplashOval(int _x, int _y, int _size, Point _dest) {
+		super(_x, _y, _size);
+		dest = _dest;
+	}
+	
+	public SplashOval(Point _loc, int _size, Point _dest) {
+		super(_loc, _size);
+		dest = _dest;
+	}
+	
+	public void setColor(Color _color){
+		color = _color;
+	}
+	
+	public void move(){
+		if(location.distance(dest)>5){
+			if(location.x>1920 ||location.y>1080){
+				location.x = (int)(Math.random()*1920);
+				location.y = (int)(Math.random()*1080);
+			}
+			double speed = 10;
+			int deltaX = location.x-dest.x;
+			int deltaY = location.y-dest.y;
+			double theta =  Math.atan2(deltaY,deltaX)*180/Math.PI;
+			Point newLocation;
+			
+			if(Math.abs(theta)<90){
+				double newX = (deltaX<0?1:-1)*speed*Math.cos(theta*Math.PI/180);
+				double newY = -speed*Math.sin(theta*Math.PI/180);
+				newLocation = location;
+				newLocation.x+=newX;
+				newLocation.y+=newY;
+			}else{
+				double thetaPrime = 180-theta;
+				double newX = (deltaX<0?1:-1)*speed*Math.cos(thetaPrime*Math.PI/180);
+				double newY = -speed*Math.sin(thetaPrime*Math.PI/180);
+				newLocation = location;
+				newLocation.x+=newX;
+				newLocation.y+=newY;
+			}
+			setLocation(newLocation);
+		}else{
+			alive = false;
+		}
+	}
+	
+	public boolean isAlive(){
+		return alive;
+	}
+	private boolean alive = true;
+	
+	private double theta = 0;
+	private double angleAmnt = .1;
+	public void rotate(){
+		int deltaX = location.x-1920/2;
+		int deltaY = location.y-1080/2;
+		
+		
+		Point newP = new Point((int)(Math.cos(theta*Math.PI/180)*(deltaX)-Math.sin(theta*Math.PI/180)*deltaY+location.x),(int)(Math.sin(theta*Math.PI/180)*deltaX+Math.cos(theta*Math.PI/180)*deltaY+deltaY));
+		
+		location = newP;
+		theta+=angleAmnt;
+		if(theta>360)
+			theta = 0;
+	}
+	
+	public void paint(Graphics g){
+		g.setColor(color);
+		super.paint(g);
+	}
+}

@@ -1,0 +1,15 @@
+package neumont.edu.csc150.player.achievement;
+
+import java.awt.Image;
+
+public abstract class Achievable {
+	private String name;
+	private Image icon;
+	public Achievable(String _name){
+		name = _name;
+	}
+	
+	public String getName(){
+		return name;
+	}
+}

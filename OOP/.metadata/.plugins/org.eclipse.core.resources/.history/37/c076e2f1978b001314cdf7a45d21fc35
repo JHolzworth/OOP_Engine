@@ -1,0 +1,6 @@
+package neumont.edu.csc150.volley.menu;
+
+import java.awt.Component;
+
+public class MenuSlot extends Component{
+}

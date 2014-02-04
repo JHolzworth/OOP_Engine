@@ -1,0 +1,14 @@
+package letters;
+import java.awt.Point;
+
+
+public class LetterPoint {
+	
+	public static Point[] getV(){
+		Point[] points = new Point[3];
+		points[0] = new Point(-1,-1);
+		points[1] = new Point(0,1);
+		points[2] = new Point(1,-1);
+		return points;
+	}
+}

@@ -1,0 +1,82 @@
+package neumont.edu.csc150.enemy;
+
+import java.awt.Graphics;
+import java.awt.Point;
+
+import neumont.edu.csc150.Game;
+
+public class FlickeringEnemy extends Enemy{
+
+
+	private boolean flickering;
+	
+	public FlickeringEnemy(int _x, int _y, int _size, int _health) {
+		super(_x, _y, _size, _health);
+		init();
+	}
+	public FlickeringEnemy(Point _loc, int _size, int _health) {
+		super(_loc, _size, _health);
+		init();
+	}
+	
+	private void init(){
+		flickering = false;
+	}
+	
+	protected boolean checkCollision() {
+		return Game.getCurrentPlayer().isColliding(this);
+	}
+	
+	protected void actionForCollision() {
+		if(flickering){
+			//TODO
+			Game.getCurrentPlayer().addPoints(1);
+			System.out.println(Game.getCurrentPlayer().getPoints());
+		}else{
+			Game.getCurrentPlayer().takeDamage(1);
+			System.out.println(Game.getCurrentPlayer().getHealth());
+		}
+	}
+	
+	
+	private Thread flicker;
+	private static int WAIT_TIME = 1500;
+	private static int FLICKER_TIME = 3000;
+	
+	protected void action() {
+		if(flicker==null){
+			flicker = new Thread(new Runnable(){
+				public void run(){
+					while(true){
+						try {
+							flicker.sleep(WAIT_TIME);
+							flickering = true;
+							flicker.sleep(FLICKER_TIME);
+							flickering = false;
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			});
+			flicker.start();
+		}
+	}
+	
+	public void paint(Graphics g){
+		if(flickering){
+			g.setColor(OBTAINABLE);
+		}else{
+			g.setColor(ENEMY_COLOR);
+		}
+		super.paint(g);
+	}
+	
+	public void pause(){
+		try {
+			flicker.wait();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}

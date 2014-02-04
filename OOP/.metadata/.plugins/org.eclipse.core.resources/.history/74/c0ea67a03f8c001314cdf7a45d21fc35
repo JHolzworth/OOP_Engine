@@ -1,0 +1,133 @@
+package neumont.edu.csc150.level;
+
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+
+import neumont.edu.csc150.enemy.Enemy;
+import neumont.edu.csc150.player.Player;
+import neumont.edu.csc150.player.achievement.Achievable;
+
+public abstract class Level {
+
+	
+	protected Collection<Enemy> enemies;
+	protected Image icon;
+	protected String section;
+	protected String name;
+	protected Date completed;
+	protected Collection<Achievable> achievements;
+	
+	private int x,y,width,height;
+	
+	public Level(int _x, int _y, int _width, int _height, Image _icon, String _section, String _name, Collection<Enemy> _enemies){
+		x=_x;
+		y=_y;
+		width=_width;
+		height=_height;
+		icon = _icon;
+		name = _name;
+		section = _section;
+		enemies = _enemies;
+		achievements = new ArrayList<Achievable>();
+	}
+	
+	public Rectangle getBounds(){
+		return new Rectangle(x,y,width,height);
+	}
+	
+	
+	public Image getIcon(){
+		return icon;
+	}
+	
+	public String getSection(){
+		return section;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public void completed(Date _completed){
+		completed = _completed;
+	}
+	
+	public String getDate(){
+		String date = "Not completed";
+		if(completed!=null)
+			date = completed.toString();
+		return date;
+	}
+	
+	public Collection<Achievable> getAchievements(){
+		return achievements;
+	}
+	
+	
+	protected abstract void paintBackground(Graphics g);
+	
+	protected abstract void paintForeground(Graphics g);
+	//list of enemies
+	//list of all items
+	//list of structures
+	
+	//list of achievements?
+	//particle displayer
+	
+	//Method to determine if the level is finished/complete
+	
+	//add particle
+	//remove enemy
+	//remove item
+	
+	
+	//animation thread
+	//move thread
+	
+	
+	private static int ANIMATION_TIME = 50;
+	
+	public void start(){
+		animator = new Thread(new Runnable(){
+			public void run(){
+				while(!levelComplete()){
+					try {
+						animator.sleep(ANIMATION_TIME);
+					} catch (InterruptedException e1) {
+						e1.printStackTrace();
+					}
+					Collection<Enemy> toRemove = new ArrayList<Enemy>();
+					for(Enemy e : enemies){
+						e.move();
+						if(!e.isAlive()){
+							toRemove.add(e);
+						}
+					}
+					enemies.removeAll(toRemove);
+				}
+			}
+		});
+		animator.start();
+	}
+	
+	public abstract boolean levelComplete();
+	
+	
+	private Thread animator;
+	
+	//Paint
+	
+	public void paint(Player p, Graphics g){
+		paintBackground(g);
+		for(Enemy e : enemies){
+			e.paint(g);
+		}
+		p.paint(g);
+		
+		paintForeground(g);
+	}
+}

@@ -1,0 +1,8 @@
+package neumont.edu.csc150.player.achievement;
+
+public class Achievable {
+	private String name;
+	public String getName(){
+		return name;
+	}
+}

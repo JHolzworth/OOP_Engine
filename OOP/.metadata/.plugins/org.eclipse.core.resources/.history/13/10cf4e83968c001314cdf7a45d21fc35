@@ -1,0 +1,15 @@
+package neumont.edu.csc150.volley.menu.factory;
+
+import java.io.File;
+
+import neumont.edu.csc150.player.Player;
+
+public class SerialReader implements FileReader{
+
+	@Override
+	public Player readPlayer(File file) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,11 @@
+package neumont.edu.csc150.volley.menu.factory.writer;
+
+import neumont.edu.csc150.player.Player;
+
+public class TextFileWriter implements FileWriter{
+
+	public void writePlayer(Player p) {
+		
+	}
+
+}

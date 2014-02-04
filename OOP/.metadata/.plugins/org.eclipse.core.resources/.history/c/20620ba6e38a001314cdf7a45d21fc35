@@ -1,0 +1,56 @@
+package neumont.edu.csc150.enemy;
+
+import java.awt.Color;
+import java.awt.Point;
+
+import neumont.edu.csc150.volley.Oval;
+
+public abstract class Enemy extends Oval{
+
+	private static Color ENEMY_COLOR = Color.red;
+	private int health;
+	private int currentHealth;
+	public Enemy(int _x, int _y, int _size, int _health) {
+		super(_x, _y, _size);
+		health = _health;
+		init();
+	}
+	public Enemy(Point loc, int _size, int _health) {
+		super(loc, _size);
+		health = _health;
+		init();
+	}
+
+	private void init(){
+		currentHealth = health;
+	}
+	
+	public int getHealth(){
+		return health;
+	}
+	
+	public boolean isAlive(){
+		return currentHealth==0;
+	}
+	
+	public void takeDamage(int _health){
+		currentHealth-=_health;
+		if(currentHealth<0)
+			currentHealth=0;
+	}
+	
+	public void start(){
+		move();
+		if(checkCollision()){
+			actionForCollision();
+		}
+	}
+	
+	public void paint(Graphics g){
+		
+	}
+	
+	protected abstract boolean checkCollision();
+	protected abstract void actionForCollision();
+	protected abstract void move();
+}

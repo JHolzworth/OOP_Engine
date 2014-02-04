@@ -1,0 +1,70 @@
+package neumont.edu.csc150.move;
+
+import java.awt.Point;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import neumont.edu.csc150.player.Player;
+import neumont.edu.csc150.player.movement.MoveListener;
+
+public class PlayerController implements MoveListener{
+
+	private Player player;
+	public PlayerController(Player _player){
+		player = _player;
+		mover = new Timer();
+		mover.schedule(new MoveTask(), MOVE_DELAY);
+	}
+	
+	boolean alive;
+	
+	public void end(){
+		mover.cancel();
+	}
+	
+	
+	
+	private Point current;
+	private Timer mover;
+	private static int MOVE_DELAY = 25;
+	private static int MIN_DIST = 10;
+	private class MoveTask extends TimerTask{
+
+		public void run() {
+			if(current!=null){
+				
+				if(current.distance(player.getLocation())>MIN_DIST){
+					double speed = player.getSpeed();
+					int deltaX = current.x-player.getX();
+					int deltaY = current.y-player.getY();
+					double theta =  Math.atan2(deltaY,deltaX)*180/Math.PI;
+					Point newLocation;
+					System.out.println(theta);
+					if(Math.abs(theta)<90){
+						double newX = (deltaX<0?-1:1)*speed*Math.cos(theta*Math.PI/180);
+						double newY = speed*Math.sin(theta*Math.PI/180);
+						newLocation = player.getLocation();
+						newLocation.x+=newX;
+						newLocation.y+=newY;
+					}else{
+						double thetaPrime = 180-theta;
+						double newX = (deltaX<0?-1:1)*speed*Math.cos(thetaPrime*Math.PI/180);
+						double newY = speed*Math.sin(thetaPrime*Math.PI/180);
+						newLocation = player.getLocation();
+						newLocation.x+=newX;
+						newLocation.y+=newY;
+					}
+					player.setLocation(newLocation);
+				}else{
+				}
+			}
+			mover.schedule(new MoveTask(), MOVE_DELAY);
+		}
+		
+	}
+	
+	
+	public void move(Point loc) {
+		current = loc;
+	}
+}

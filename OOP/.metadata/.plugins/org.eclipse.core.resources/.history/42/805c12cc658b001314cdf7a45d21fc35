@@ -1,0 +1,14 @@
+package neumont.edu.csc150.volley.splash;
+
+import javax.swing.JFrame;
+
+public class SplashFrame extends JFrame{
+
+	public SplashFrame(){
+		super();
+		setBounds(800,500,500,500);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		setVisibile(true);
+	}
+}

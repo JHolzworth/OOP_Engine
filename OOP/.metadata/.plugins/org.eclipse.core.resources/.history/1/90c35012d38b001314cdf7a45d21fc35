@@ -1,0 +1,13 @@
+package neumont.edu.csc150.player.achievement;
+
+import java.awt.Image;
+
+public class GainedAchievement extends Achievable{
+
+	
+	
+	public GainedAchievement(String _name, Image _icon) {
+		super(_name, _icon);
+	}
+
+}

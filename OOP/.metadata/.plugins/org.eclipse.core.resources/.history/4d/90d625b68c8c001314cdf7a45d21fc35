@@ -1,0 +1,13 @@
+package neumont.edu.csc150.enemies;
+
+import java.awt.Point;
+
+import neumont.edu.csc150.enemy.Enemy;
+
+public class ObtainableEnemy extends Enemy{
+
+	public ObtainableEnemy(Point loc, int _size, int _health) {
+		super(loc, _size, _health);
+	}
+
+}

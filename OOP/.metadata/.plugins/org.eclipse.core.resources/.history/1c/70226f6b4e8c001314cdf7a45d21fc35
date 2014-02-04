@@ -1,0 +1,6 @@
+package neumont.edu.csc150.player;
+
+public interface PlayerHealthListener {
+
+	public void healthChange(int _health	;
+}

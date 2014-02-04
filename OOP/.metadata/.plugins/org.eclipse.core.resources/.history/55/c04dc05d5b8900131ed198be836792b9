@@ -1,0 +1,13 @@
+package neumont.edu.csc150.volley;
+
+public class Oval {
+
+	private int x,y;
+	private int size;
+	
+	public Oval(int _x, int _y, int _size){
+		x = _x;
+		y = _y;
+		size = _size;
+	}
+}

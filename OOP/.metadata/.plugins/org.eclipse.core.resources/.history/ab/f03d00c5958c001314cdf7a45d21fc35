@@ -1,0 +1,5 @@
+package neumont.edu.csc150.volley.menu.factory.writer;
+
+public class SerialWriter{
+
+}

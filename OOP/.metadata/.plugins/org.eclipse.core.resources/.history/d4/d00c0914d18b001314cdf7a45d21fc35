@@ -1,0 +1,18 @@
+package neumont.edu.csc150.volley.game.frame.achievement;
+
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+
+import neumont.edu.csc150.player.achievement.GainedAchievement;
+
+public class AchievementSlot extends JPanel{
+
+	public AchievementSlot(GainedAchievement achiev){
+		super();
+		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+		
+		
+		
+		setVisible(true);
+	}
+}

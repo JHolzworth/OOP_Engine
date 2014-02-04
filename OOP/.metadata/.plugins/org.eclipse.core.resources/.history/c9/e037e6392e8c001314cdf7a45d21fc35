@@ -1,0 +1,10 @@
+package neumont.edu.csc150.volley.game.frame.level;
+
+import javax.swing.JPanel;
+
+public class SectionSlot extends JPanel{
+	
+	public SectionSlot(){
+		super();
+	}
+}

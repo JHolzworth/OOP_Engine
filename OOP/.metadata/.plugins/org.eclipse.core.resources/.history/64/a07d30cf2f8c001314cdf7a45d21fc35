@@ -1,0 +1,14 @@
+package neumont.edu.csc150.volley.game.frame.level;
+
+import java.util.Collection;
+
+import javax.swing.JPanel;
+
+import neumont.edu.csc150.level.Level;
+
+public class LevelsPane extends JPanel{
+
+	public LevelsPane(Collection<Level> allLevels){
+		super();
+	}
+}

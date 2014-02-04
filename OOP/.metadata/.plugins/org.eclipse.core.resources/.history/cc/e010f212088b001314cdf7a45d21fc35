@@ -1,0 +1,18 @@
+package neumont.edu.csc150;
+
+import neumont.edu.csc150.player.Player;
+
+public class Game {
+
+	private static Player currentPlayer;
+	
+	private static Game instance;
+	
+	public Game(){
+		
+	}
+	
+	public static Player getCurrentPlayer(){
+		return currentPlayer;
+	}
+}

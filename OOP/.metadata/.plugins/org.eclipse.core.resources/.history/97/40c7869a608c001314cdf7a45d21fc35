@@ -1,0 +1,13 @@
+package neumont.edu.csc150.volley.menu.factory;
+
+import java.io.File;
+
+import neumont.edu.csc150.player.Player;
+
+public class ProfileFactory {
+
+	public static Player readProfile(){
+		FileReader fr =  new TextFileReader();
+		return fr.readPlayer(new File("C:\\Users\\Joshua\\Desktop\\sav1.vsav"));
+	}
+}

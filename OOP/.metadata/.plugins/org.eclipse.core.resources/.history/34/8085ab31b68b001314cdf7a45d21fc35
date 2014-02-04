@@ -1,0 +1,25 @@
+package neumont.edu.csc150.volley.menu;
+
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+
+public class TitleSlot extends MenuSlot{
+	private Font TITLE_FONT = new Font(null,1,50);
+	private String GAME_NAME = "Volley";
+	public TitleSlot(){
+		super();
+		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+		JButton newButton = new JButton("New Game");
+		newButton.setVisible(true);
+		add(Box.createHorizontalGlue());
+		add(newButton,Box.CENTER_ALIGNMENT);
+		add(Box.createHorizontalGlue());
+		setBorder(BorderFactory.createLineBorder(Color.green));
+		setVisible(true);
+	}
+}

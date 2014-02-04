@@ -1,0 +1,7 @@
+package neumont.edu.csc150.move.listener;
+
+import java.awt.Point;
+
+public interface MoveListener {
+	public void move(Point loc);
+}

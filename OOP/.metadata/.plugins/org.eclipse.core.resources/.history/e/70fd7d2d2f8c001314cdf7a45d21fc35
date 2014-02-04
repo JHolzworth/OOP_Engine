@@ -1,0 +1,9 @@
+package neumont.edu.csc150.volley.game.frame.level;
+
+import javax.swing.JPanel;
+
+public class LevelSlotHolder extends JPanel{
+	public LevelSlotHolder(){
+		super();
+	}
+}

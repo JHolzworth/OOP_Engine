@@ -1,0 +1,7 @@
+package neumont.edu.csc150.enemy;
+
+import neumont.edu.csc150.volley.Oval;
+
+public class Enemy extends Oval{
+
+}

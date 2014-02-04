@@ -1,0 +1,27 @@
+package neumont.edu.csc150.volley.menu;
+
+import java.awt.Color;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+
+public class SaveSlot extends MenuSlot{
+
+	private JButton load;
+	private JButton delete;
+	public SaveSlot(){
+		super();
+		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+		load = new JButton("Load");
+		load.setVisible(true);
+		add(load,Box.LEFT_ALIGNMENT);
+		add(Box.createHorizontalGlue());
+		delete = new JButton("Delete");
+		delete.setVisible(true);
+		add(delete,Box.RIGHT_ALIGNMENT);
+		setBorder(BorderFactory.createLineBorder(Color.black));
+		setVisible(true);
+	}
+}
